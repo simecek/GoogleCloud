@@ -1,0 +1,27 @@
+sudo apt-get update
+sudo apt-get install docker.io
+sudo service docker start
+sudo systemctl enable docker
+
+sudo docker pull rocker/hadleyverse
+sudo docker run -d -p 8787:80 -e USER=rstudio -e PASSWORD=rstudio rocker/hadleyverse
+
+sudo docker pull rocker/shiny
+sudo mkdir /shiny
+sudo docker run -d -p 3838:3838 -v /shiny/:/srv/shiny-server -v /srv/shinylog:/var/log rocker/shiny
+
+sudo mkfs.ext4 -F /dev/disk/by-id/google-datadisk
+sudo mkdir /datadisk
+sudo mount -o discard,defaults /dev/disk/by-id/google-datadisk /datadisk
+sudo mount -o remount,rw /dev/disk/by-id/google-datadisk/ /datadisk/
+
+gcloud compute --project "calico-jax" ssh --zone "us-central1-c" "pishcoontal"
+
+sudo mkdir /datadisk/jax-kidney
+sudo chmod a+rxw /datadisk/jax-kidney
+
+gcloud compute copy-files ./8schools.stan pishcoontal:/datadisk/jax-kidney --project "calico-jax" --zone "us-central1-c"
+screen
+cd data/mapping/kidney_combined/
+gcloud compute copy-files ./scripts  pishcoontal:/datadisk/jax-kidney --project "calico-jax" --zone "us-central1-c"
+
