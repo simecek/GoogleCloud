@@ -19,7 +19,7 @@ You might want to mount the external disk that is attached to the instance. For 
 sudo mount -o discard,defaults /dev/disk/by-id/google-datadisk /datadisk
 ```
 
-After that you can pull the docker image and run the docker container. I am giving here two examples RStudio Server and R/Shiny server. If you are new to Docker, see (the documentation)[https://docs.docker.com/].
+After that you can pull the docker image and run the docker container. I am giving here two examples: RStudio Server and R/Shiny server. If you are new to Docker, see [the documentation](https://docs.docker.com/).
 
 ```
 # R/Shiny server
