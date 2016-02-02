@@ -1,6 +1,6 @@
 # R/Shiny Docker Container
 
-We currently use (rocker/shiny)[https://hub.docker.com/r/rocker/shiny/] docker image that will be later customized to our needs.
+We currently use [rocker/shiny](https://hub.docker.com/r/rocker/shiny/) docker image that will be later customized to our needs.
 
 The script below installs all required R packages that `kidney` app uses:
 
