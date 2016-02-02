@@ -25,3 +25,45 @@ screen
 cd data/mapping/kidney_combined/
 gcloud compute copy-files ./scripts  pishcoontal:/datadisk/jax-kidney --project "calico-jax" --zone "us-central1-c"
 
+
+sudo mkdir /datadisk
+sudo mount -o discard,defaults /dev/disk/by-id/google-datadisk /datadisk
+sudo mount -o remount,rw /dev/disk/by-id/google-datadisk/ /datadisk
+
+sudo mkdir /data
+sudo chmod a+rwx /data
+sudo docker run -d -v /datadisk:/datadisk -v /data:/data -p 8787:8787 -e USER=rstudio -e PASSWORD=rstudio rocker/hadleyverse
+
+sudo docker run -d -p 3838:3838 -v /shiny/srv/shiny-server -v /srv/shinylog:/var/log -v /datadisk:/datadisk rocker/shiny
+
+# inside shiny docker
+sudo apt-get update
+sudo apt-get install libxml2-dev
+sudo apt-get install libssl-dev
+
+sudo Rscript -e 'install.packages(pkgs = "devtools", dependencies = TRUE)'
+sudo Rscript -e 'install.packages(pkgs = "qtl", dependencies = TRUE)'
+sudo Rscript -e 'install.packages(pkgs = "qtlcharts", dependencies = TRUE)'
+sudo Rscript -e 'install.packages(pkgs = "ggplot2", dependencies = TRUE)'
+sudo Rscript -e 'devtools::install_github("simecek/intermediate")'
+
+# inside rstudio docker
+
+sudo Rscript -e 'install.packages(pkgs = "qtl", dependencies = TRUE)'
+sudo Rscript -e 'source("http://bioconductor.org/biocLite.R"); biocLite(c("DOQTL"), ask=FALSE)'
+sudo Rscript -e 'devtools::install_github(repo = "dmgatti/DOQTL")'
+sudo Rscript -e 'install.packages(c("yaml", "jsonlite", "data.table", "RcppEigen"), dependencies = TRUE)'
+sudo Rscript -e 'devtools::install_github(repo = c("rqtl/qtl2geno", "rqtl/qtl2scan"))'
+sudo Rscript -e 'devtools::install_github("simecek/intermediate")'
+
+ 
+for USER in "petr" "gary" "ben" "xu" "david" "gail" "johan"
+do
+  echo "Adding the user $USER"
+  useradd $USER && echo "$USER:rstudio" | chpasswd
+  mkdir /home/$USER && chown $USER:$USER /home/$USER
+  addgroup $USER rstudio
+  ln -s /datadisk "/home/$USER/datadisk" && ln -s /data "/home/$USER/shared"
+done  
+
+
