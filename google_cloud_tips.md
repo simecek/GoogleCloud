@@ -1,0 +1,43 @@
+# Various tips concerning Google Cloud
+
+## First steps
+
+### Prerequisities
+
+* You have Google Account linked to the project
+* You are able to log into the project https://console.developers.google.com/compute/disks?project=calico-jax
+* You are able to create a new instance https://console.developers.google.com/compute/instancesAdd?project=calico-jax
+* You installed Google Cloud SDK https://cloud.google.com/sdk/ into your machine 
+Do not try to connect to a running instance through the web or Google Cloud Shell. With the current firewall setting it will fail.
+
+### Before you can start
+
+You will need oauth2 credentials and SSH key. To manage oauth2 credentials for the Google Cloud SDK, run
+
+```
+gcloud auth login
+```
+
+and after that 
+
+```
+gcloud compute --project "calico-jax" ssh --zone "us-central1-c" "whatever"
+```
+
+This fails and give you the error but it creates SSH key. You need to send the public SSH key (`.ssh/google_compute_engine.pub`) to admin (=Ben) to add you to the project.
+
+### Log into the instance
+
+I expect you log into the instance that is already running or create in web interface. For examples, let us expect the name of the instance is `rstudio`. Then you can log into it as follows
+
+```
+gcloud compute --project "calico-jax" ssh --zone "us-central1-c" "rstudio"
+```
+
+and copy the files into the instance similar way
+
+```
+gcloud compute copy-files localfile  rstudio:/whateverfolder --project "calico-jax" --zone "us-central1-c"
+```
+
+Similarly, almost everything you can done in web interface has its equivalent in Google Cloud SDK, see (the documentation)[https://cloud.google.com/sdk/cloudplatform].
