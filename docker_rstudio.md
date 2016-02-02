@@ -1,6 +1,6 @@
 # RStudio Server Docker Container
 
-We currently use (rocker/hadleyverse)[https://hub.docker.com/r/rocker/hadleyverse/] docker image that will be later customized to our needs.
+We currently use [rocker/hadleyverse](https://hub.docker.com/r/rocker/hadleyverse/) docker image that will be later customized to our needs.
 
 The script below installs several R packages useful for qtl mapping:
 
@@ -13,7 +13,7 @@ sudo Rscript -e 'devtools::install_github(repo = c("rqtl/qtl2geno", "rqtl/qtl2sc
 sudo Rscript -e 'devtools::install_github("simecek/intermediate")'
 ```
 
-Moreover, we the second script below adds users to RStudio Server:
+Moreover, the second script adds users to RStudio Server:
 ```
 for USER in "petr" "gary" "ben" "xu" "david" "gail" "johan"
 do
@@ -25,7 +25,7 @@ do
 done
 ```
 
-You need to run the script inside the docker container. You can log into the running docker container as follows:
+You need to run the scripts inside the docker container. You can log into the running docker container as follows:
 
 ```
 sudo docker exec -i -t $CONTAINERID /bin/bash
