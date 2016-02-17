@@ -24,11 +24,11 @@ After that you can pull the docker image and run the docker container. I am givi
 ```
 # R/Shiny server
 # check that /shiny folder exists
-sudo docker run -d -p 3838:3838 -v /shiny/:/srv/shiny-server -v /srv/shinylog:/var/log -v /datadisk:/datadisk rocker/shiny
+sudo docker run -d -p 3838:3838 -v /shiny/:/srv/shiny-server -v /srv/shinylog:/var/log -v /datadisk:/datadisk simecek/shiny
 
 # RStudio Server
 # check that /data folder exists
-sudo docker run -d -v /datadisk:/datadisk -v /data:/data -p 8787:8787 -e USER=rstudio -e PASSWORD=rstudio rocker/hadleyverse
+sudo docker run -d -v /datadisk:/datadisk -v /data:/data -p 8787:8787 -e USER=rstudio -e PASSWORD=rstudio simecek/rstudio
 ```
 
 You can list the docker containers as follows

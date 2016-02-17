@@ -8,6 +8,8 @@
 
 ### Documentation
 
+* I have built docker images for [RStudio](https://hub.docker.com/r/simecek/rstudio/) and [R/Shiny](https://hub.docker.com/r/simecek/shiny/) that contains all the required R packages
+
 * [RStudio Server](https://github.com/simecek/GoogleCloud/blob/master/docker_rstudio.md) docker container
 
 * [R/Shiny Server](https://github.com/simecek/GoogleCloud/blob/master/docker_shiny.md) docker container
