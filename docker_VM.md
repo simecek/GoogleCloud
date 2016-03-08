@@ -17,6 +17,8 @@ You might want to mount the external disk that is attached to the instance. For 
 # to format the disk: sudo mkfs.ext4 -F /dev/disk/by-id/google-datadisk
 # create /datadisk folder: sudo mkdir /datadisk
 sudo mount -o discard,defaults /dev/disk/by-id/google-datadisk /datadisk
+# if you want to add the disk permanently (so you can reboot), sudo nano -w /etc/fstab and add the new line
+# /dev/sdb                /datadisk ext4  ro,discard      0 0
 ```
 
 After that you can pull the docker image and run the docker container. I am giving here two examples: RStudio Server and R/Shiny server. If you are new to Docker, see [the documentation](https://docs.docker.com/).
