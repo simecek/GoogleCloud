@@ -50,3 +50,5 @@ And even log into the running container:
 ```
 sudo docker exec -i -t $CONTAINERID /bin/bash
 ```
+
+If you run the container with the option `--restart=always` or `--restart=unless-stopped` it will be restarted after reboot.
