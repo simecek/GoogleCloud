@@ -1,4 +1,3 @@
-# Install pieces of Matt's eQTL and pQTL viewers
 FROM ipython/scipystack
 MAINTAINER Petr Simecek <petrs@jax.org>
 
