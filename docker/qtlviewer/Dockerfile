@@ -21,7 +21,8 @@ RUN pip install flask
 RUN pip install flask-compress
 RUN pip install flask-cors    
 
-EXPOSE 8888
+# Clone the app from Github
+RUN git clone http://github.com/churchill-lab/qtl-viewer.git /root/app
 
 
 
