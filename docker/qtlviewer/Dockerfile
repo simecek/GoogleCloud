@@ -24,5 +24,6 @@ RUN pip install flask-cors
 # Clone the app from Github
 RUN git clone http://github.com/churchill-lab/qtl-viewer.git /root/app
 
-
+# At the end, run the app
+ENTRYPOINT ["python", "/root/app/run.py", "/data/settings.cfg"]
 
