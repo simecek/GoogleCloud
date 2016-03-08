@@ -11,9 +11,9 @@ RUN wget https://bootstrap.pypa.io/get-pip.py \
   && python get-pip.py
 
 # HDF5 installation
-RUN wget http://www.hdfgroup.org/ftp/HDF5/current/bin/linux-centos6-x86_64/hdf5-1.8.15-patch1-linux-centos6-x86_64-shared.tar.gz 
-RUN tar xvfz hdf5-1.8.15-patch1-linux-centos6-x86_64-shared.tar.gz && \
-    cp -R hdf5-1.8.15-patch1-linux-centos6-x86_64-shared/* /usr/ && \
+RUN wget http://www.hdfgroup.org/ftp/HDF5/current/bin/linux-centos6-x86_64-gcc447/hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared.tar.gz 
+RUN tar xvfz hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared.tar.gz && \
+    cp -R hdf5-1.8.16-linux-centos6-x86_64-gcc447-shared/* /usr/ && \
     rm -Rf hdf*
     
 # Install addition Python packages
