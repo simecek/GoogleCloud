@@ -47,7 +47,7 @@ Similarly, almost anything you can do in the web interface can be also achieved 
 
 We have created two storage buckets associated to the project: nearline [(calico-jax)](https://console.cloud.google.com/storage/browser/calico-jax/?project=calico-jax) and standard [(calico-jax-std)](https://console.cloud.google.com/storage/browser/calico-jax-std/?project=calico-jax). The nearline storage is cheaper but the access is slightly slower.
 
-To copy a file or folder to/from a bucket, use `gutil`, example
+To copy a file or folder to/from a bucket, use `gsutil`, example
 
 ```
 gsutil cp -r EPFL_microarray_raw gs://calico-jax/epfl
