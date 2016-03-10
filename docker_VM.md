@@ -7,8 +7,6 @@ First log into the instance (I am using Ubuntu 14.04 LTS) and run
 ```
 sudo apt-get update
 sudo apt-get install -y docker.io
-# sudo service docker start
-# sudo systemctl enable docker
 ```
 
 You might want to mount the external disk that is attached to the instance. For example, `datadisk` volume can be mounted to ```/datadisk``` as follows:
