@@ -2,7 +2,7 @@
 
 This document describes how to create an instrance at Google Cloud and run a docker container on it. Make sure that ports you want to use are not blocked by the firewall rules. 
 
-First log into the instance (I am using Ubuntu 15.04) and run
+First log into the instance (I am using Ubuntu 14.04 LTS) and run
 
 ```
 sudo apt-get update
