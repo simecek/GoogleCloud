@@ -37,5 +37,4 @@ RUN pip install scipy==0.13.3
 RUN pip install cython
 RUN pip install progressbar
 
-# Install emase (python prototype)
-RUN pip install emase
+
