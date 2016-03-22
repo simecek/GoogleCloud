@@ -1,16 +1,16 @@
 # Stop And Restart Docker Container
 
-To save money, it is advised to run VMs only when you actually use them. However, it is a bit tricky to do so with docker containers. There are three issues: after VM rebooting the docker service must be restarted, the docker container itself must be restarted and the disks must be remounted. 
+To save money, it is advised to run VMs only when you actually use them. However, it is a bit tricky to do so with docker containers. There are at least three issues: after VM rebooting, the docker service must be restarted, the docker container itself must be restarted and the disks must be remounted. 
 
 ### Docker daemon
 
-There is a difference between Ubuntu 14.10 and Ubuntu 15.04 in boot and service manager. Ubuntu 14.04 (`upstart`) restarts the docker daemon automatically, while for Ubuntu 15.04 onwards (`systemd`) you need to register docker service with
+There is a difference between Ubuntu 14.10 and Ubuntu 15.04 in boot and service manager. Ubuntu 14.04 (`upstart`) restarts the docker daemon automatically, while for Ubuntu 15.04 onwards (`systemd`) you need to register docker service with the following command
 
 ```
 sudo systemctl enable docker
 ```
 
-For the moment I would recommend to use Ubuntu 14.10.
+For the moment I would recommend to use Ubuntu 14.10 because of that.
 
 ### Docker container restart
 
