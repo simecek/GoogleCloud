@@ -1,5 +1,5 @@
-## Based on rocker/rocker maintained by Carl Boettiger and Dirk Eddelbuettel
-FROM rocker/rocker
+## Based on rocker/r-base maintained by Carl Boettiger and Dirk Eddelbuettel
+FROM rocker/r-base
 
 MAINTAINER "Petr Simecek" lamparna@gmail.com
 
