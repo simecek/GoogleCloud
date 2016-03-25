@@ -4,7 +4,7 @@ FROM rocker/r-base
 MAINTAINER "Petr Simecek" lamparna@gmail.com
 
 # devtools external dependencies
-RUN apt-get -y update && apt-get -y upgrade
+#RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get -y install libcurl4-openssl-dev
 RUN apt-get -y install libxml2-dev
 
@@ -12,7 +12,7 @@ RUN apt-get -y install libxml2-dev
 RUN Rscript -e 'install.packages(pkgs = c("qtl", "abind", "curl"), dependencies = TRUE)'
 RUN Rscript -e 'install.packages(pkgs = "devtools", dependencies = TRUE)'
 RUN Rscript -e 'install.packages(c("yaml", "jsonlite", "data.table", "RcppEigen"), dependencies = TRUE)'
-RUN Rscript -e 'devtools::install_github(repo = c("rqtl/qtl2geno", "rqtl/qtl2scan", "rqtl/qtl2plot", "rqtl/qtl2convert"))'
-RUN Rscript -e 'devtools::install_github("simecek/intermediate")'
-RUN Rscript -e 'devtools::install_github("kbroman/lmmlite")'
+#RUN Rscript -e 'devtools::install_github(repo = c("rqtl/qtl2geno", "rqtl/qtl2scan", "rqtl/qtl2plot", "rqtl/qtl2convert"))'
+#RUN Rscript -e 'devtools::install_github("simecek/intermediate")'
+#RUN Rscript -e 'devtools::install_github("kbroman/lmmlite")'
 
