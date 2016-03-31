@@ -4,9 +4,10 @@ FROM rocker/r-base
 MAINTAINER "Petr Simecek" lamparna@gmail.com
 
 # devtools external dependencies
-RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get -y install libcurl4-openssl-dev
-RUN apt-get -y install libxml2-dev
+RUN apt-get -y update && apt-get -y upgrade &&
+  apt-get install -y libcurl4-openssl-dev &&
+  apt-get install -y libxml2-dev &&
+  apt-get install -y libssl-dev 
 
 ## install the required R packages
 RUN Rscript -e 'install.packages(pkgs = c("qtl", "abind", "curl"), dependencies = TRUE)'
