@@ -4,9 +4,9 @@ FROM rocker/r-base
 MAINTAINER "Petr Simecek" lamparna@gmail.com
 
 # devtools external dependencies
-RUN apt-get -y update && apt-get -y upgrade &&
-  apt-get install -y libcurl4-openssl-dev &&
-  apt-get install -y libxml2-dev &&
+RUN apt-get -y update && apt-get -y upgrade && \
+  apt-get install -y libcurl4-openssl-dev && \
+  apt-get install -y libxml2-dev && \
   apt-get install -y libssl-dev 
 
 ## install the required R packages
