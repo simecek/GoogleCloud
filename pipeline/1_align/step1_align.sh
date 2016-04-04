@@ -22,5 +22,5 @@ do
   array=(${p//,/ })
   SAMPLE=${array[0]}
   let i+=1
-  gcloud compute --project "calico-jax" ssh "align-$i" --zone "us-central1-c" screen -d -m env "sample=$SAMPLE" bash ./gcloud_one_sample_align.sh &
+  gcloud compute --project "calico-jax" ssh "align-$i" --zone "us-central1-c" screen -d -m env "SAMPLE=$SAMPLE" bash ./gcloud_one_sample_align.sh &
 done < sample_list.csv
