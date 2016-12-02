@@ -1,9 +1,10 @@
-## Based on rocker/hadleyverse maintained by Carl Boettiger and Dirk Eddelbuettel
+## Based on rocker/shiny maintained by Carl Boettiger and Dirk Eddelbuettel
 FROM rocker/shiny
 
 MAINTAINER "Petr Simecek" lamparna@gmail.com
 
-RUN apt-get -y update && apt-get -y install libxml2-dev 
+RUN apt-get -y update
+RUN apt-get -y install libxml2-dev
 RUN apt-get -y install libssl-dev
 
 RUN Rscript -e 'install.packages(pkgs = "devtools", dependencies = TRUE)'
